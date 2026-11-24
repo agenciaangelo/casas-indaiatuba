@@ -52,6 +52,19 @@ img{display:block;max-width:100%}
 .spec strong{font-family:'Gilda Display',serif;font-weight:400;font-size:1.35rem}
 @media(min-width:760px){.specs{grid-template-columns:repeat(3,1fr);column-gap:40px}}
 
+
+.video{background:var(--green);padding:0 0 64px}
+.video .frame{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000 center/cover no-repeat;box-shadow:0 30px 60px -30px rgba(0,0,0,.7);cursor:pointer;border:0;width:100%;display:block}
+.video .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.45))}
+.video .play{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(244,240,232,.95);color:var(--green);display:grid;place-items:center;transition:transform .3s}
+.video .frame:hover .play{transform:translate(-50%,-50%) scale(1.07)}
+.video .vlabel{position:absolute;z-index:2;left:18px;bottom:16px;color:#fff;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video h2{color:var(--cream);font-size:clamp(1.7rem,5vw,2.4rem);margin:10px 0 22px}
+.video .eyebrow{color:var(--gold2)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero .ctas .cta{margin-top:0}
+
 /* gallery */
 .gallery{padding:64px 0 40px}
 .ghead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px}
@@ -129,8 +142,10 @@ footer .brand{margin-top:34px;align-items:center}
     <div class="eyebrow">Condomínio Villa dos Pinheiros</div>
     <h1 class="serif">Villa dos Pinheiros</h1>
     <p>504,54 m² construídos · 605,68 m² de terreno</p>
-    <a class="cta" href="#fotos">Ver as 74 fotos
+    <div class="ctas"><a class="cta" href="#fotos">Ver as 74 fotos
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+    <a class="cta" href="#video">Assistir ao vídeo
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></a></div>
   </div>
 </header>
 
@@ -139,6 +154,17 @@ footer .brand{margin-top:34px;align-items:center}
     <span class="tag">Mobiliada</span>
     <p class="lead serif">Mais que metragem e acabamentos: um lugar para viver com conforto, privacidade e liberdade. Casa mobiliada, com pé-direito amplo e ambientes que se conectam.</p>
     <div class="specs"><div class="spec"><span>Área construída</span><strong>504,54 m²</strong></div><div class="spec"><span>Terreno</span><strong>605,68 m²</strong></div><div class="spec"><span>Suítes</span><strong>5</strong></div><div class="spec"><span>Banheiros</span><strong>7 + lavabo</strong></div><div class="spec"><span>Vagas</span><strong>6 (3 cobertas)</strong></div><div class="spec"><span>Pavimentos</span><strong>2</strong></div></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <div class="eyebrow">Vídeo</div>
+    <h2 class="serif">Conheça cada ambiente em vídeo</h2>
+    <button class="frame" id="vframe" style="background-image:url('https://i.ytimg.com/vi/gmqN89XpGrY/hqdefault.jpg'),url('img/f01_t.jpg')" aria-label="Assistir ao vídeo do imóvel">
+      <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="vlabel">Assistir ao vídeo</span>
+    </button>
   </div>
 </section>
 
@@ -279,6 +305,9 @@ stage.addEventListener('touchend', e => {
   else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) closeLb();
   x0 = null;
 });
+
+const vf=document.getElementById('vframe');
+if(vf) vf.addEventListener('click',()=>{vf.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/gmqN89XpGrY?autoplay=1&rel=0&playsinline=1" title="Vídeo do imóvel" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';vf.style.cursor='default'},{once:true});
 </script>
 <a class="wa-float" href="https://wa.me/5511991056200?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20im%C3%B3vel%20Villa%20dos%20Pinheiros%20%28Condom%C3%ADnio%20Villa%20dos%20Pinheiros%29%2C%20que%20vi%20em%20casasemindaiatuba.com.br." aria-label="Falar no WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
 </body>
