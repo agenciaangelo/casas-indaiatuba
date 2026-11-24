@@ -2,31 +2,127 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Casa em Indaiatuba · Imóveis</title>
-<meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1d16">
+<title>Casa em Indaiatuba · Casas de alto padrão em Indaiatuba/SP</title>
+
+<meta name="description" content="Casas de alto padrão em condomínios fechados de Indaiatuba/SP. Veja todas as fotos de cada imóvel.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casa em Indaiatuba · Casas de alto padrão">
+<meta property="og:description" content="Três casas selecionadas em condomínios fechados de Indaiatuba/SP. Veja todas as fotos.">
+<meta property="og:image" content="https://casasemindaiatuba.com.br/residencia-exclusiva/og.jpg">
+<meta property="og:url" content="https://casasemindaiatuba.com.br/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#0b1d16;--bg2:#10281f;--cream:#f4f0e8;--gold:#c4a77a;--gold2:#9a7a4f;--muted:rgba(244,240,232,.62);--line:rgba(244,240,232,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Montserrat,sans-serif;background:#10291f;color:#f4f0e8;min-height:100svh;padding:48px 22px}
-.wrap{max-width:1000px;margin:0 auto}
-small{font-size:.6rem;letter-spacing:.32em;font-weight:600;display:block}
-h1{font-family:'Gilda Display',serif;font-weight:400;font-size:1.6rem;letter-spacing:.08em;margin:4px 0 40px}
-.grid{display:grid;gap:18px}
-@media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1100px){.wrap{max-width:1300px}.grid{grid-template-columns:1fr 1fr 1fr}}
-a{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;color:#fff;text-decoration:none;background:#173a2c}
-a img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-a:hover img{transform:scale(1.04)}
-a div{position:absolute;inset:auto 0 0 0;padding:40px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
-a b{font-family:'Gilda Display',serif;font-weight:400;font-size:1.7rem;display:block}
-a span{font-size:.8rem;opacity:.9}
+html,body{background:var(--bg)}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--cream);-webkit-font-smoothing:antialiased;min-height:100svh;overflow-x:hidden;
+  background:radial-gradient(120% 70% at 85% -10%,rgba(196,167,122,.16),transparent 60%),radial-gradient(90% 60% at -10% 110%,rgba(36,84,62,.45),transparent 60%),var(--bg)}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Gilda Display',Georgia,serif;font-weight:400}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  padding:calc(14px + env(safe-area-inset-top)) 22px 14px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:linear-gradient(var(--bg) 0%,rgba(11,29,22,.72) 100%);border-bottom:1px solid var(--line)}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand small{font-size:.5rem;letter-spacing:.34em;font-weight:600;color:var(--gold);margin-bottom:5px}
+.brand b{font-family:'Gilda Display',serif;font-weight:400;font-size:1.1rem;letter-spacing:.1em}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  padding:8px 13px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.03)}
+.pill i{width:6px;height:6px;border-radius:50%;background:#5fd38d;box-shadow:0 0 0 4px rgba(95,211,141,.15)}
+
+/* intro */
+.intro{padding:34px 22px 22px;max-width:1240px;margin:0 auto}
+.eyebrow{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+.intro h1{font-size:clamp(2.3rem,8.6vw,4.4rem);line-height:1.02;margin:14px 0 14px;letter-spacing:-.005em}
+.intro h1 em{font-style:normal;color:var(--gold)}
+.intro p{color:var(--muted);font-size:.9rem;line-height:1.6;max-width:520px}
+
+/* cards */
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 22px 8px;scroll-padding:22px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.card{position:relative;flex:0 0 84%;scroll-snap-align:start;aspect-ratio:3/4.1;border-radius:26px;overflow:hidden;isolation:isolate;
+  background:var(--bg2);box-shadow:0 30px 60px -30px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06) inset;
+  opacity:0;transform:translateY(18px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards}
+.card:nth-child(2){animation-delay:.12s}.card:nth-child(3){animation-delay:.24s}
+@keyframes up{to{opacity:1;transform:none}}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,16,12,.55) 0%,rgba(6,16,12,0) 26%,rgba(6,16,12,0) 45%,rgba(6,16,12,.6) 70%,rgba(6,16,12,.94) 100%)}
+.card:hover img{transform:scale(1.05)}
+.chips{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between;gap:8px}
+.chip{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:8px 11px;border-radius:999px;
+  background:rgba(10,24,18,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip.n{flex:none;display:inline-flex;align-items:center;gap:6px}
+.info{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 20px}
+.num{font-size:.62rem;letter-spacing:.3em;color:var(--gold);font-weight:600}
+.info h2{font-size:clamp(1.9rem,7.4vw,2.3rem);line-height:1.04;margin:8px 0 14px}
+.stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.16);padding-top:14px}
+.stat{flex:1;display:flex;flex-direction:column;gap:3px}
+.stat+.stat{padding-left:14px;border-left:1px solid rgba(255,255,255,.14);margin-left:14px}
+.stat b{font-family:'Gilda Display',serif;font-weight:400;font-size:1.15rem}
+.stat span{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.go{position:absolute;right:20px;top:-26px;width:52px;height:52px;border-radius:50%;background:var(--cream);color:var(--bg);display:grid;place-items:center;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.card:hover .go{transform:translateX(3px) rotate(-45deg)}
+
+.dots{display:flex;justify-content:center;gap:7px;padding:14px 0 6px}
+.dots i{width:6px;height:6px;border-radius:999px;background:rgba(244,240,232,.25);transition:all .3s}
+.dots i.on{width:22px;background:var(--gold)}
+.hint{text-align:center;color:var(--muted);font-size:.72rem;letter-spacing:.04em;padding:4px 22px 0}
+
+@media(min-width:900px){
+  .intro{padding:70px 40px 36px}
+  .rail{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;overflow:visible;padding:10px 40px;max-width:1320px;margin:0 auto}
+  .card{flex:none}
+  .card:hover{transform:translateY(-6px);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .dots{display:none}
+  .hint{display:none}
+}
+
+/* contact + footer */
+.contact{max-width:1240px;margin:40px auto 0;padding:0 22px}
+.cbox{border:1px solid var(--line);border-radius:26px;padding:28px 22px;background:linear-gradient(135deg,rgba(196,167,122,.10),rgba(255,255,255,.02));display:flex;flex-direction:column;gap:18px}
+.cbox h3{font-size:clamp(1.6rem,5.6vw,2.2rem);line-height:1.1}
+.cbox p{color:var(--muted);font-size:.85rem;line-height:1.6}
+.wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:999px;background:#25d366;color:#06301a;font-weight:600;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+.wa-num{font-size:.8rem;color:var(--muted)}
+@media(min-width:900px){.contact{padding:0 40px}.cbox{flex-direction:row;align-items:center;justify-content:space-between;padding:34px 40px}}
+footer{padding:44px 22px calc(36px + env(safe-area-inset-bottom));text-align:center;color:var(--muted);font-size:.68rem;letter-spacing:.08em}
+footer .brand{align-items:center;margin-bottom:12px;color:var(--cream)}
 </style>
 </head>
-<body><div class="wrap">
-<small>CASA EM</small><h1>INDAIATUBA</h1>
-<div class="grid">
-<a href="villa-dos-pinheiros/"><img src="villa-dos-pinheiros/og.jpg" alt=""><div><b>Villa dos Pinheiros</b><span>504,54 m² · 5 suítes</span></div></a>
-<a href="dona-maria-candida/"><img src="dona-maria-candida/og.jpg" alt=""><div><b>Dona Maria Cândida</b><span>289 m² · 4 quartos (3 suítes)</span></div></a>
-<a href="residencia-exclusiva/"><img src="residencia-exclusiva/og.jpg" alt=""><div><b>Residência Exclusiva</b><span>451,5 m² · 4 suítes · elevador</span></div></a>
-</div></div></body></html>
+<body>
+<header class="bar">
+  <a class="brand" href="./"><small>CASA EM</small><b>INDAIATUBA</b></a>
+  <span class="pill"><i></i>3 imóveis</span>
+</header>
+
+<section class="intro">
+  <div class="eyebrow">Coleção alto padrão</div>
+  <h1 class="serif">Casas selecionadas<br>em <em>Indaiatuba</em></h1>
+  <p>Casas de alto padrão em condomínios fechados de Indaiatuba/SP. Toque em uma casa para ver todas as fotos e detalhes.</p>
+</section>
+
+<div class="rail" id="rail"><a class="card" href="villa-dos-pinheiros/"><img src="villa-dos-pinheiros/card.jpg" alt="Villa dos Pinheiros" loading="eager"><div class="chips"><span class="chip">Cond. Villa dos Pinheiros</span><span class="chip n">74 fotos</span></div><div class="info"><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="num">01</div><h2 class="serif">Villa dos Pinheiros</h2><div class="stats"><div class="stat"><b>504,54 m²</b><span>Construídos</span></div><div class="stat"><b>5</b><span>suítes</span></div><div class="stat"><b>6</b><span>Vagas</span></div></div></div></a><a class="card" href="dona-maria-candida/"><img src="dona-maria-candida/card.jpg" alt="Dona Maria Cândida" loading="lazy"><div class="chips"><span class="chip">Jd. Dona Maria Cândida</span><span class="chip n">61 fotos</span></div><div class="info"><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="num">02</div><h2 class="serif">Dona Maria Cândida</h2><div class="stats"><div class="stat"><b>289 m²</b><span>Construídos</span></div><div class="stat"><b>3</b><span>suítes</span></div><div class="stat"><b>4</b><span>Vagas</span></div></div></div></a><a class="card" href="residencia-exclusiva/"><img src="residencia-exclusiva/card.jpg" alt="Residência Exclusiva" loading="lazy"><div class="chips"><span class="chip">Cond. Villa dos Pinheiros</span><span class="chip n">75 fotos</span></div><div class="info"><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="num">03</div><h2 class="serif">Residência Exclusiva</h2><div class="stats"><div class="stat"><b>451,5 m²</b><span>Construídos</span></div><div class="stat"><b>4</b><span>suítes</span></div><div class="stat"><b>6</b><span>Vagas</span></div></div></div></a></div>
+<div class="dots" id="dots"></div>
+<p class="hint">Deslize para ver as outras casas</p>
+
+<section class="contact"><div class="cbox"><div><div class="eyebrow">Agende sua visita</div><h3 class="serif" style="margin-top:10px">Gostou de alguma casa?</h3><p>Fale com a gente pelo WhatsApp para tirar dúvidas e agendar uma visita.</p></div><div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><a class="wa" href="https://wa.me/5511991056200?text=Ol%C3%A1%21%20Vi%20as%20casas%20em%20casasemindaiatuba.com.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Falar no WhatsApp</a><span class="wa-num">(11) 99105-6200</span></div></div></section>
+
+<footer>
+  <div class="brand"><small>CASA EM</small><b>INDAIATUBA</b></div>
+  Indaiatuba · São Paulo
+</footer>
+
+<script>
+const rail=document.getElementById('rail'),dots=document.getElementById('dots'),cards=[...rail.children];
+cards.forEach((c,i)=>{const d=document.createElement('i');if(!i)d.className='on';d.onclick=()=>c.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});dots.appendChild(d)});
+rail.addEventListener('scroll',()=>{const w=cards[0].offsetWidth+14;const i=Math.round(rail.scrollLeft/w);[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i))},{passive:true});
+</script>
+</body>
+</html>
