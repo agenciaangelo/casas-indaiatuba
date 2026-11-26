@@ -86,6 +86,13 @@ img{display:block;max-width:100%}
 .dlbtn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;background:var(--green);color:var(--cream);text-decoration:none;font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
 .dlbtn:hover{background:var(--green2)}
 .dl span{font-size:.75rem;color:var(--muted)}
+@media(max-width:480px){.wa{letter-spacing:.06em;padding:15px 20px}.dlbtn{letter-spacing:.08em;padding:15px 20px;font-size:.7rem}.vbtn{letter-spacing:.06em;padding:11px 15px}}
+.vdl{margin-top:34px;text-align:center}
+.vdl h4{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.vdl .row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.vbtn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:999px;border:1px solid var(--green);color:var(--green);text-decoration:none;font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;transition:all .2s}
+.vbtn:hover{background:var(--green);color:var(--cream)}
+.vdl p{font-size:.75rem;color:var(--muted);margin-top:12px}
 
 /* details */
 .details{padding:30px 0 60px}
@@ -119,6 +126,10 @@ footer .brand{margin-top:34px;align-items:center}
 .wa-float:hover{transform:scale(1.06)}
 .lb.open ~ .wa-float{display:none}
 .wa-num{display:block;margin-top:12px;font-size:.85rem;opacity:.8;letter-spacing:.04em}
+
+.social{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.social a{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:999px;border:1px solid rgba(244,240,232,.3);color:#f4f0e8;text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.06em;transition:background .2s}
+.social a:hover{background:rgba(244,240,232,.1)}
 
 /* lightbox */
 .lb{position:fixed;inset:0;background:#0b130f;z-index:50;display:none;flex-direction:column;touch-action:pan-y}
@@ -185,6 +196,7 @@ footer .brand{margin-top:34px;align-items:center}
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
       Baixar fotos em alta qualidade</a>
       <span>Abre a pasta no Google Drive. Use “Fazer download” para baixar todas.</span></div>
+    <div class="vdl"><h4>Baixar vídeos em alta qualidade</h4><div class="row"><a class="vbtn" href="https://drive.google.com/file/d/1RO4yfAhqa1JqMg4eQP8TFTv3YOJ6yaHQ/view" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Vídeo horizontal</a><a class="vbtn" href="https://drive.google.com/file/d/1RLBRlIpImtXuuvknndrzNoOTng4xJSGh/view" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Vídeo vertical 1</a><a class="vbtn" href="https://drive.google.com/drive/folders/1yb0zjtgr2KhE9X4DZm2sPJW-Q4n1gcxy" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Pasta de verticais</a></div><p>Abre o vídeo no Google Drive. Toque no ícone de download para salvar o arquivo original.</p></div>
   </div>
 </section>
 
@@ -214,6 +226,7 @@ footer .brand{margin-top:34px;align-items:center}
     <div class="eyebrow" style="color:var(--gold2)">Agende sua visita</div>
     <h2 class="serif">Seu próximo capítulo<br>pode começar aqui.</h2>
     <p>Fale conosco para mais informações e para agendar sua visita.</p><a class="wa" href="https://wa.me/5511991056200?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20im%C3%B3vel%20Dona%20Maria%20C%C3%A2ndida%20%28Jardim%20Residencial%20Dona%20Maria%20C%C3%A2ndida%29%2C%20que%20vi%20em%20casasemindaiatuba.com.br."><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Agendar visita pelo WhatsApp</a><span class="wa-num">WhatsApp (11) 99105-6200</span>
+    <div class="social"><a href="https://www.instagram.com/casasindaiatuba_/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@casasindaiatuba_</a><a href="https://youtu.be/jQ4rK4eE9p8" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-4.8.5-4.8s0-3.2-.5-4.8zM9.7 15.1V8.9L15.3 12z"/></svg>Assistir no YouTube</a></div>
     <div class="brand"><small>CASA EM</small><b>INDAIATUBA</b></div>
   </div>
 </footer>
